@@ -3,30 +3,25 @@ from django.db import models
 r = []
 class Place(models.Model):
     title = models.CharField('Название', max_length=50)
-    # image = models.ImageField('Каритинка', blank=True, null=True)
     description_short = models.TextField('Короткое описание')
     description_long = models.TextField('Длинное описание')
-    lng = models.FloatField('long')
-    lat = models.FloatField('lat')
+    lng = models.FloatField('longitude')
+    lat = models.FloatField('latitude')
+
+    geo_title = models.CharField('Название на карте', max_length=50, blank=True)
+    placeId = models.CharField('ID', max_length=50, blank=True)
 
     def __str__(self):
         return self.title
 
 
 class Image(models.Model):
-    place = models.ForeignKey(Place, verbose_name='Name', on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, verbose_name='Name', related_name='place_images', on_delete=models.CASCADE)
     image = models.ImageField(verbose_name='Картинка', upload_to='media', blank=True, null=True)
+    position = models.PositiveIntegerField(verbose_name='Позиция', default=0, db_index=True)
 
-    # def count(self):
-    #
-    #     # list_count = [enumerate(self.place) for i, self in list]
-    #         return i
-    # place_id = self.place.id
-    # r.append(Place.objects.filter(id=place_id))
-    # b = []
-    # for i, place in enumerate(r):
-    #     b.append(i + 1)
+    class Meta:
+        ordering = ['position']
 
     def __str__(self):
-        return f'{self.id} {self.place.title}'
-
+        return f'{self.position} {self.place.title}'
