@@ -163,3 +163,5 @@ cython_debug/
 .idea/
 
 
+where_to_go/__pycache__/settings.cpython-311.pyc
+where_to_go/__pycache__/urls.cpython-311.pyc
