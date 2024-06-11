@@ -3,13 +3,10 @@ from places.models import Place, Image
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.urls import reverse
-from django.http import HttpResponse
-import json
-
-places = Place.objects.all()
 
 
 def index(request):
+    places = Place.objects.all()
     feature = []
     for place in places:
         feature.append({
@@ -47,11 +44,5 @@ def get_place(request, id):
             "lat": place.lat
         }
     }
-    # b = reverse('places', kwargs={'id': id})
-    # place = JsonResponse(g, safe=True, json_dumps_params={'ensure_ascii': False})
-    # data = {'p': point}
-    # place = get_object_or_404(Place, id=place.id)
-    # return HttpResponse(b)
-    return JsonResponse(point, safe=False, json_dumps_params={'ensure_ascii': False, 'indent': 2})
-    # return render(request, 'index.html', context=data)
 
+    return JsonResponse(point, safe=False, json_dumps_params={'ensure_ascii': False, 'indent': 2})
