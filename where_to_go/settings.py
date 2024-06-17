@@ -7,9 +7,9 @@ env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env.str("SECRET_KEY")
 
-DEBUG = env("DEBUG", default=True)
+DEBUG = env.bool("DEBUG", default=True)
 
 ALLOWED_HOSTS = []
 
@@ -86,11 +86,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = env("STATIC_URL")
+STATIC_URL = env.str("STATIC_URL")
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "assets"), )
 
-MEDIA_URL = env("MEDIA_URL")
+MEDIA_URL = env.str("MEDIA_URL")
 
 MEDIA_ROOT = os.getenv("MEDIA_ROOT", os.path.join(BASE_DIR, 'media'))
 
