@@ -23,8 +23,8 @@ class Command(BaseCommand):
         response = requests.get(url)
         new_place = response.json()
         Place.objects.get_or_create(title=new_place['title'],
-                                    description_short=new_place['description_short'],
-                                    description_long=new_place['description_long'],
+                                    short_description=new_place['description_short'],
+                                    long_description=new_place['description_long'],
                                     lng=new_place['coordinates']['lng'],
                                     lat=new_place['coordinates']['lat'],
                                     geo_title=new_place['title'])
