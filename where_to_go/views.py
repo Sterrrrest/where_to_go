@@ -16,8 +16,8 @@ def index(request):
                         "coordinates": [place.lng, place.lat]
                     },
                     "properties": {
-                        "title": place.geo_title,
-                        "placeId": place.placeId,
+                        "title": place.title,
+                        "placeId": place.id,
                         "detailsUrl": reverse('places', kwargs={'id': place.id})
                     }
                 },)
@@ -37,8 +37,8 @@ def get_place(request, id):
     point = {
         "title": place.title,
         "imgs": [pic.image.url for pic in images],
-        "description_short": place.description_short,
-        "description_long": place.description_long,
+        "short_description": place.short_description,
+        "long_description": place.long_description,
         "coordinates": {
             "lng": place.lng,
             "lat": place.lat
