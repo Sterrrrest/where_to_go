@@ -7,11 +7,11 @@ env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = env.str('SECRET_KEY')
 
-DEBUG = env.bool("DEBUG", default=True)
+DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default='127.0.0.1')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -86,13 +86,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = env.str("STATIC_URL", default='/static/')
+STATIC_URL = env.str('STATIC_URL', default='/static/')
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "assets"), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'assets'), )
 
-MEDIA_URL = env.str("MEDIA_URL", default='/media/')
+MEDIA_URL = env.str('MEDIA_URL', default='/media/')
 
-MEDIA_ROOT = env.str("MEDIA_ROOT", os.path.join(BASE_DIR, 'media'))
+MEDIA_ROOT = env.str('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 
 STATIC_ROOT = BASE_DIR / 'static'
 
