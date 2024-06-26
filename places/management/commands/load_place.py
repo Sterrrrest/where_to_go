@@ -14,6 +14,7 @@ from django.core.files.images import ImageFile
 
 from places.models import Place, Image
 
+from PIL import Image as Im
 
 
 class Command(BaseCommand):
@@ -31,12 +32,11 @@ class Command(BaseCommand):
                                                     # 'geo_title': new_place['title'],
                                        })
 
-
         for img_num, img in enumerate(new_place['imgs']):
-            Image.objects.get_or_create(place=place[0], position=img_num)
-            image = Image.objects.get(place=place[0], position=img_num)
-            picture = BytesIO(urlopen(img).read())
-            image.image.save(f'{img_num}.jpg', picture, save=True)
+            pic_response = requests.get(img).content
+            image = ContentFile(pic_response, name=f'{img_num}.jpg')
+            Image.objects.create(place=place[0], image=image, position=img_num)
+
 
     def add_arguments(self, parser):
         parser.add_argument(
