@@ -31,12 +31,12 @@ def index(request):
 
 
 def get_place(request, id):
-    place = get_object_or_404(Place, id=id)
-    images = Image.objects.filter(place_id=id)
+
+    place = get_object_or_404(Place.objects.select_related('images'), id=id)
 
     point = {
         'title': place.title,
-        'imgs': [pic.image.url for pic in images],
+        'imgs': [pic.image.url for pic in place.images.all()],
         'short_description': place.short_description,
         'long_description': place.long_description,
         'coordinates': {
