@@ -33,7 +33,7 @@ class Command(BaseCommand):
             print('HTTPError')
         except requests.exceptions.ConnectionError:
             time.sleep(30)
-            
+
     def add_arguments(self, parser):
         parser.add_argument(
             '--url',
