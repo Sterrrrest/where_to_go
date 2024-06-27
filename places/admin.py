@@ -5,8 +5,8 @@ from adminsortable2.admin import SortableAdminBase
 from adminsortable2.admin import SortableTabularInline
 
 
-height = 200
-width = 300
+HEIGHT = 200
+WIDTH = 300
 
 class Imageinline(SortableTabularInline):
     model = Image
@@ -15,7 +15,7 @@ class Imageinline(SortableTabularInline):
 
     def preview_img(self, obj):
         return format_html("<img src={} style='max-height: {}px; max-width: {}px;'>",
-                           mark_safe(obj.image.url), height, width)
+                           mark_safe(obj.image.url), HEIGHT, WIDTH)
 
 
 @admin.register(Place)
