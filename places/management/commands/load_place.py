@@ -21,7 +21,6 @@ class Command(BaseCommand):
                                                         'long_description': new_place['description_long'],
                                                         'lng': new_place['coordinates']['lng'],
                                                         'lat': new_place['coordinates']['lat'],
-                                                        # 'geo_title': new_place['title'],
                                            })
 
             for img_num, img in enumerate(new_place['imgs']):
