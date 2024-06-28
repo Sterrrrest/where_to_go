@@ -32,7 +32,7 @@ def index(request):
 
 def get_place(request, id):
 
-    place = get_object_or_404(Place.objects.select_related('images'), id=id)
+    place = get_object_or_404(Place.objects.prefetch_related('images'), id=id)
 
     point = {
         'title': place.title,
