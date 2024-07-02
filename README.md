@@ -10,21 +10,23 @@
 - Скачайте код. Проект находится тут - https://github.com/Sterrrrest/where_to_go/tree/main. Выберите "Download" -> "Download ZIP".
 - Далее установите переменные окружения.
 
-## Переменные окружения
-
-Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
-
-Доступны следущие переменные:
-- `DEBUG` — дебаг-режим. Поставьте `True`, чтобы увидеть отладочную информацию в случае ошибки. Выключается значением `False`.
-- `SECRET_KEY` — секретный ключ проекта. Например: `erofheronoirenfoernfx49389f43xf3984xf9384`.
-- `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts).
-- `STATIC_URL` — по умолчанию это `'/static/'`. [Что такое STATIC_URL](https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-STATIC_URL).
-
 ## Запуск проекта
 
 - Создайте окружение `python3 -m venv env`
 - Запустите его `source env/bin/activate`
 - Установите зависимости командой `pip install -r requirements.txt`
+
+Часть настроек проекта берётся из переменных окружения. 
+
+- Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
+
+Доступны следущие переменные:
+
+- `DEBUG` — дебаг-режим. Поставьте `True`, чтобы увидеть отладочную информацию в случае ошибки. Выключается значением `False`.
+- `SECRET_KEY` — секретный ключ проекта. Например: `erofheronoirenfoernfx49389f43xf3984xf9384`.
+- `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts).
+- `STATIC_URL` — по умолчанию это `'/static/'`. [Что такое STATIC_URL](https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-STATIC_URL).
+
 - Создайте базу данных `python3 manage.py migrate`
 - Для входа в панель админ создайте суперпользователя `python3 manage.py createsuperuser`
 - Запустите сервер командой `python3 manage.py runserver`
@@ -33,6 +35,10 @@
 
 - Сайт - http://127.0.0.1:8000/
 - Админ панель - http://127.0.0.1:8000/admin/
+- 
+## Переменные окружения
+
+
 
 ## Настройки
 
