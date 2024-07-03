@@ -10,7 +10,7 @@
 - Скачайте код. Проект находится тут - https://github.com/Sterrrrest/where_to_go/tree/main. Выберите "Download" -> "Download ZIP".
 - Далее установите переменные окружения.
 
-## Запуск проекта
+## Переменные окружения
 
 - Создайте окружение `python3 -m venv env`
 - Запустите его `source env/bin/activate`
@@ -27,6 +27,8 @@
 - `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts).
 - `STATIC_URL` — по умолчанию это `'/static/'`. [Что такое STATIC_URL](https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-STATIC_URL).
 
+## Запуск проекта
+
 - Создайте базу данных `python3 manage.py migrate`
 - Для входа в панель админ создайте суперпользователя `python3 manage.py createsuperuser`
 - Запустите сервер командой `python3 manage.py runserver`
@@ -35,10 +37,6 @@
 
 - Сайт - http://127.0.0.1:8000/
 - Админ панель - http://127.0.0.1:8000/admin/
-- 
-## Переменные окружения
-
-
 
 ## Настройки
 
