@@ -41,7 +41,7 @@ def get_place(request, id):
         'long_description': place.long_description,
         'coordinates': {
             'lng': place.lng,
-            'lat': place.lat
+            'lat': place.lat,
         }
     }
 
