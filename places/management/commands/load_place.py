@@ -3,6 +3,7 @@ import time
 
 from django.core.management.base import BaseCommand
 from django.core.files.base import ContentFile
+# from urllib.error import HTTPError
 
 from places.models import Place, Image
 
@@ -24,16 +25,19 @@ class Command(BaseCommand):
                                            })
 
             for img_num, img in enumerate(new_place['imgs']):
-                pic_response = requests.get(img)
-                pic_response.raise_for_status()
-                image = ContentFile(pic_response.content, name=f'{img_num}.jpg')
-                Image.objects.create(place=place, image=image, position=img_num)
+                try:
+                    pic_response = requests.get(img)
+                    pic_response.raise_for_status()
+                    image = ContentFile(pic_response.content, name=f'{img_num}.jpg')
+                    Image.objects.create(place=place, image=image, position=img_num)
+                except requests.exceptions.HTTPError:
+                    print('HTTPError')
+                except requests.exceptions.ConnectionError:
+                    print('ConnectionError')
         except requests.exceptions.HTTPError:
             print('HTTPError')
-            pass
         except requests.exceptions.ConnectionError:
             print('ConnectionError')
-            pass
 
     def add_arguments(self, parser):
         parser.add_argument(
