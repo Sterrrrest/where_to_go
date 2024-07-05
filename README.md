@@ -60,7 +60,7 @@
 
 Для запуска проекта наберите `python3 manage.py`, затем команду `load-places` и URL по примеру ниже:
 
--   `python3 manage.py load-places https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/places/%D0%9B%D0%B0%D0%B3%D0%B5%D1%80%D1%8C%20%C2%AB%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D0%BD%D1%8B%D0%B9%C2%BB.json`
+-   `python3 manage.py load-places https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/places/%D0%90%D0%BD%D1%82%D0%B8%D0%BA%D0%B0%D1%84%D0%B5%20Bizone.json`
 - [пример файла JSON](https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/moscow_legends.json)
 ## Источники данных
 
